@@ -1,0 +1,8 @@
+@if (cours) {
+  <h2>{{ cours.titre }}</h2>
+  <p>Catégorie : {{ cours.categorie }}</p>
+  <p>Durée : {{ cours.duree }}</p>
+  <p>Places disponibles : {{ cours.places }}</p>
+} @else {
+  <p>Sélectionnez un cours dans la liste pour voir son détail.</p>
+}
