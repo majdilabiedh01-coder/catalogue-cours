@@ -11,7 +11,7 @@
   </div>
 
   @for (c of cours | filtreCours:recherche | triCours:tri; track c.titre) {
-
+    <a [routerLink]="['/cours', c.id]">Voir le détail</a>
     <article
       class="carte-cours"
       (click)="selectionner(c)"
@@ -36,6 +36,7 @@
 
       <p>Durée : {{ c.duree }}</p>
       <p>Places disponibles : {{ c.places }}</p>
+      
     </article>
 
   } @empty {
