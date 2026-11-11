@@ -1,0 +1,18 @@
+app-container{
+    text-align: center;
+    padding: 10px;
+    display: block ;
+    background-color: aliceblue;    
+}
+header{
+    display: block;
+    size: 12;
+    padding: 30px;
+    
+}
+aside{
+     float: right;
+  position: absolute;
+  top: 110px;
+  right: 125px;
+}
