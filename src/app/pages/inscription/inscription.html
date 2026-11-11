@@ -1,0 +1,129 @@
+<form [formGroup]="form" (ngSubmit)="envoyer()" novalidate>
+
+  <div class="champ">
+
+  <label for="nom">Nom complet</label>
+
+  <input
+    type="text"
+    id="nom"
+    formControlName="nom"
+  >
+
+  @if (nom.touched && nom.hasError('required')) {
+  <p class="erreur">
+    Le nom complet est obligatoire.
+  </p>
+}
+@else if (nom.touched && nom.hasError('nomComplet')) {
+  <p class="erreur">
+    Indiquez votre prénom et votre nom.
+  </p>
+}
+
+</div>
+<div class="champ">
+
+  <label for="email">Adresse e-mail</label>
+
+  <input
+    type="email"
+    id="email"
+    formControlName="email"
+  >
+
+  @if (email.touched && email.hasError('required')) {
+    <p class="erreur">
+      L'adresse e-mail est obligatoire.
+    </p>
+  }
+
+  @if (email.touched && email.hasError('email')) {
+    <p class="erreur">
+      Adresse e-mail invalide.
+    </p>
+  }
+
+</div>
+<div class="champ">
+
+  <label for="telephone">Téléphone (facultatif)</label>
+
+  <input
+    type="tel"
+    id="telephone"
+    formControlName="telephone"
+  >
+
+  @if (telephone.touched && telephone.hasError('pattern')) {
+    <p class="erreur">
+      Le numéro doit contenir exactement 8 chiffres.
+    </p>
+  }
+
+</div>
+
+<div class="champ">
+
+  <label for="niveau">Niveau</label>
+
+  <select id="niveau" formControlName="niveau">
+    <option value="">Choisir votre niveau</option>
+    <option value="Débutant">Débutant</option>
+    <option value="Intermédiaire">Intermédiaire</option>
+    <option value="Avancé">Avancé</option>
+  </select>
+
+  @if (niveau.touched && niveau.hasError('required')) {
+    <p class="erreur">
+      Veuillez choisir votre niveau.
+    </p>
+  }
+
+</div>
+<div class="champ">
+
+  <label for="motivation">Pourquoi voulez-vous suivre ce cours ?</label>
+
+  <textarea
+    id="motivation"
+    formControlName="motivation"
+    rows="4"
+  ></textarea>
+
+  @if (motivation.touched && motivation.hasError('required')) {
+    <p class="erreur">
+      Le champ motivation est obligatoire.
+    </p>
+  }
+
+  @if (motivation.touched && motivation.hasError('minlength')) {
+    <p class="erreur">
+      La motivation doit contenir au moins 20 caractères.
+    </p>
+  }
+
+</div>
+<div class="champ">
+
+  <label>
+    <input
+      type="checkbox"
+      formControlName="conditions"
+    >
+    J'accepte les conditions d'inscription.
+  </label>
+
+  @if (conditions.touched && conditions.hasError('required')) {
+    <p class="erreur">
+      Vous devez accepter les conditions.
+    </p>
+  }
+
+</div>
+<button type="submit">
+  S'inscrire
+</button>
+
+</form>
+<a routerLink="/cours">← Retour au catalogue</a>
